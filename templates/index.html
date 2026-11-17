@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Waste Bin Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Smart Waste Bin Monitoring System</h1>
+        <p>Monitor bin fill levels and collection status</p>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <div class="card">
+                <h3>Total Bins</h3>
+                <p id="totalBins">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Normal</h3>
+                <p id="normalBins">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Almost Full</h3>
+                <p id="almostFullBins">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Full</h3>
+                <p id="fullBins">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Warning Bins</h3>
+                <p id="warningBins">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Urgent Bins</h3>
+                <p id="urgentBins">0</p>
+            </div>
+
+        </section>
+
+        <section class="form-section">
+            <h2>Add New Bin</h2>
+
+            <form id="binForm">
+                <input type="text" id="binId" placeholder="Bin ID" required>
+                <input type="text" id="location" placeholder="Location" required>
+                <button type="submit">Add Bin</button>
+            </form>
+        </section>
+
+
+
+        <section class="table-section">
+            <h2>Registered Bins</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bin ID</th>
+                        <th>Location</th>
+                        <th>Fill Level</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="binTable">
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Collection Alerts -->
+        <section class="alert-section">
+            <h2>Collection Alerts</h2>
+            <div id="alertContainer">
+                <p>No pending collection alerts.</p>
+            </div>
+        </section>
+
+        <!-- Collection History -->
+        <section class="history-section">
+            <h2>Collection History</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serial No.</th>
+                        <th>Bin ID</th>
+                        <th>Location</th>
+                        <th>Collection Date & Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyTable">
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
